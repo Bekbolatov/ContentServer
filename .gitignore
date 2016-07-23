@@ -6,4 +6,9 @@ project/boot/
 .cache
 
 .idea/
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/RUNNING_PID
 
