@@ -1,10 +1,11 @@
-package controllers
+package controllers.example
 
 import akka.actor.ActorSystem
 import javax.inject._
-import play.api._
+
 import play.api.mvc._
-import scala.concurrent.{ExecutionContext, Future, Promise}
+
+import scala.concurrent.{Future, ExecutionContext, Promise}
 import scala.concurrent.duration._
 
 /**

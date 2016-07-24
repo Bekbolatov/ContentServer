@@ -1,0 +1,20 @@
+@(title: String, subtitle: String)(content: String)
+
+\documentclass{article}
+
+\\usepackage[margin=1.0in, bottom=1.0in]{geometry}
+ 
+\begin{document}
+
+  \twocolumn[
+  \centerline{\sc \large @title}
+  \vspace{0.3pc}
+  \centerline{\sc @subtitle }
+  \vspace{0.8pc}
+  ]
+  
+  
+@content
+  
+
+\end{document}

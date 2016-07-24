@@ -1,9 +1,8 @@
-package controllers
+package controllers.example
 
 import javax.inject._
-import play.api._
-import play.api.mvc._
 
+import play.api.mvc._
 import services.Counter
 
 /**

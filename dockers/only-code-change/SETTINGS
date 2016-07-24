@@ -1,0 +1,24 @@
+#!/bin/bash
+
+DISTRIB_HOME=/Users/rbekbolatov/repos/gh/bekbolatov/IX/common
+DISTRIB_NAME=content-server-1.0-SNAPSHOT
+SRC_HOME=/Users/rbekbolatov/repos/gh/bekbolatov/ContentServer/content-server
+
+DOCKER_IMAGE=contentserver:latest
+
+TASK_FAMILY=ContentServer
+TASK_COUNT=2
+SERVICE_TASKCOUNT_MAX=200
+SERVICE_TASKCOUNT_MIN=50
+SERVICENAME=$TASK_FAMILY
+
+SET_MEMORY=700
+SET_CPU=700
+PORT=9010
+PORT_MAPPING='[ { "hostPort": '$PORT', "containerPort": 9000, "protocol": "tcp" } ]'
+
+AWSLOGS_GROUP=contentserver
+
+
+#SKIP_DOCKER_PUSH=true
+#SKIP_TASK_REGISTRATION=true

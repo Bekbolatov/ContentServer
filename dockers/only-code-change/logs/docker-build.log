@@ -1,0 +1,44 @@
+Sending build context to Docker daemon 557.1 kBSending build context to Docker daemon 1.114 MBSending build context to Docker daemon 1.671 MBSending build context to Docker daemon 2.228 MBSending build context to Docker daemon 2.785 MBSending build context to Docker daemon 3.342 MBSending build context to Docker daemon 3.899 MBSending build context to Docker daemon 4.456 MBSending build context to Docker daemon 5.014 MBSending build context to Docker daemon 5.571 MBSending build context to Docker daemon 6.128 MBSending build context to Docker daemon 6.685 MBSending build context to Docker daemon 7.242 MBSending build context to Docker daemon 7.799 MBSending build context to Docker daemon 8.356 MBSending build context to Docker daemon 8.913 MBSending build context to Docker daemon  9.47 MBSending build context to Docker daemon 10.03 MBSending build context to Docker daemon 10.58 MBSending build context to Docker daemon 11.14 MBSending build context to Docker daemon  11.7 MBSending build context to Docker daemon 12.26 MBSending build context to Docker daemon 12.81 MBSending build context to Docker daemon 13.37 MBSending build context to Docker daemon 13.93 MBSending build context to Docker daemon 14.48 MBSending build context to Docker daemon 14.64 MB
+Step 1 : FROM renatbek/activator:1.3.10
+ ---> a6ebc26f4ad9
+Step 2 : MAINTAINER Renat Bekbolatov <renatbek@gmail.com>
+ ---> Using cache
+ ---> dffe1a017b79
+Step 3 : RUN mkdir /deployment
+ ---> Using cache
+ ---> 76e9ebfe21fc
+Step 4 : RUN mkdir /deployment/lib
+ ---> Using cache
+ ---> c711987e2345
+Step 5 : RUN mkdir /deployment/logs
+ ---> Using cache
+ ---> 1ddff5f50f4f
+Step 6 : COPY target/bin /deployment/bin
+ ---> Using cache
+ ---> ecd1a64196d4
+Step 7 : COPY target/conf /deployment/conf
+ ---> Using cache
+ ---> 1d69a99e1970
+Step 8 : COPY target/lib/sparkydots-server* /deployment/lib/
+ ---> 88c4e7334598
+Removing intermediate container 899d63ea723f
+Step 9 : COPY entrypoint.sh /deployment/
+ ---> 4a24243c2188
+Removing intermediate container a0a6f16e8610
+Step 10 : RUN chmod a+x /deployment/entrypoint.sh
+ ---> Running in dcdf27955cbc
+ ---> 19effe32d97e
+Removing intermediate container dcdf27955cbc
+Step 11 : EXPOSE 9000
+ ---> Running in 8ab26c30b059
+ ---> 8a484d5630ce
+Removing intermediate container 8ab26c30b059
+Step 12 : ENTRYPOINT /deployment/entrypoint.sh
+ ---> Running in a6caac2033a1
+ ---> f1d3c9b01c45
+Removing intermediate container a6caac2033a1
+Step 13 : CMD /deployment/bin/sparkydots-server
+ ---> Running in 2527e22d5c6c
+ ---> 7b2791431751
+Removing intermediate container 2527e22d5c6c
+Successfully built 7b2791431751

@@ -1,0 +1,9 @@
+@(blocks: Seq[(String, String)], blockPrefix: String)
+
+@for((name, content) <- blocks) {
+
+  \subsection*{@blockPrefix@name}
+
+  @content
+
+}

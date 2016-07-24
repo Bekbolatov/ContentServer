@@ -1,0 +1,53 @@
+@(practiceSet: PracticeSet)
+
+@correctAnswerDisplay(q: Question) = @{
+  if (q.correctAnswer.choice.nonEmpty) {
+    val c = q.answers(q.correctAnswer.choice.get)
+    s"${q.id} ${c.label}"
+  } else {
+    s"${q.id} ${q.correctAnswer.exactValue.get}"
+  }
+}
+\documentclass{article}
+
+\\usepackage[margin=1.0in, bottom=1.0in]{geometry}
+ 
+\begin{document}
+
+\twocolumn[
+\centerline{\sc \large @practiceSet.title}
+\vspace{0.8pc}
+\centerline{\sc @practiceSet.subtitle }
+\vspace{1.8pc}
+
+@practiceSet.description
+\vspace{0.8pc}
+]
+@for(section <- practiceSet.sections) {
+
+  \clearpage
+
+  \subsection*{@section.title}
+  \subsubsection*{@section.description}
+  
+  @for(question <- section.questions) {
+    \begin{samepage}
+    \noindent @question.id @question.statement \newline
+    @for(choice <- question.answers) {
+      \nopagebreak (@choice.label) @choice.value \newline
+    }
+    \end{samepage}
+  }
+}
+
+\clearpage
+
+\section*{Answers}
+
+@for(section <- practiceSet.sections) {
+    @for(question <- section.questions) {
+      \noindent @correctAnswerDisplay(question) \newline
+    }
+}
+
+\end{document}
