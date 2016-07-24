@@ -11,7 +11,9 @@
 \documentclass{article}
 
 \\usepackage[margin=1.0in, bottom=1.0in]{geometry}
- 
+
+\setlength{\columnsep}{0.3in}
+
 \begin{document}
 
 \twocolumn[
