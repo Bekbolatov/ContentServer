@@ -1,5 +1,7 @@
 package model
 
+import play.twirl.api.TxtFormat
+
 case class AnswerChoice(id: Int, label: String, value: String)
 case class CorrectAnswer(choice: Option[Int], exactValue: Option[String])
 case class Question(id: String, statement: String, answers: Seq[AnswerChoice], correctAnswer: CorrectAnswer)
@@ -49,6 +51,9 @@ case class PracticeSet(title: String, subtitle: String, description: String, sec
 
 
 object Example {
+  import views.txt.QuestionTemplates
+  implicit def appendableToText(appendable: TxtFormat.Appendable): String = appendable.body
+
   def createPracticeSet: PracticeSet = {
     PracticeSet(
       "Practice Set",
@@ -63,37 +68,37 @@ object Example {
           Seq(
             Question(
               "11. ",
-              "What is the area of a square with side length 7 inches?",
+              QuestionTemplates.q1(),
               Seq(AnswerChoice(0, "A", "14"), AnswerChoice(1, "B", "49"), AnswerChoice(1, "C", "52"), AnswerChoice(1, "D", "14"), AnswerChoice(1, "E", "7")),
               CorrectAnswer(Some(1), None)
             ),
             Question(
               "2. ",
-              "What is the area of a square with side length 7 inches?",
+              QuestionTemplates.q1(),
               Seq(AnswerChoice(0, "A", "14"), AnswerChoice(1, "3", "49"), AnswerChoice(1, "C", "52"), AnswerChoice(1, "D", "14"), AnswerChoice(1, "E", "7")),
               CorrectAnswer(Some(1), None)
             ),
             Question(
               "2. ",
-              "What is the area of a square with side length 7 inches?",
+              QuestionTemplates.q1(),
               Seq(AnswerChoice(0, "A", "14"), AnswerChoice(1, "B", "49"), AnswerChoice(1, "C", "52"), AnswerChoice(1, "D", "14"), AnswerChoice(1, "E", "7")),
               CorrectAnswer(Some(1), None)
             ),
             Question(
               "2. ",
-              "What is the area of a square with side length 7 inches?",
+              QuestionTemplates.q1(),
               Seq(AnswerChoice(0, "A", "14"), AnswerChoice(1, "B", "49"), AnswerChoice(1, "C", "52"), AnswerChoice(1, "D", "14"), AnswerChoice(1, "E", "7")),
               CorrectAnswer(Some(1), None)
             ),
             Question(
               "2. ",
-              "What is the area of a square with side length 7 inches?",
+              QuestionTemplates.q1(),
               Seq(AnswerChoice(0, "A", "14"), AnswerChoice(1, "B", "49"), AnswerChoice(1, "C", "52"), AnswerChoice(1, "D", "14"), AnswerChoice(1, "E", "7")),
               CorrectAnswer(Some(1), None)
             ),
             Question(
               "3. ",
-              "What is the area of a square with side length 7 inches?",
+              QuestionTemplates.q1(),
               Seq(AnswerChoice(0, "A", "14"), AnswerChoice(1, "B", "49"), AnswerChoice(1, "C", "52"), AnswerChoice(1, "D", "14"), AnswerChoice(1, "E", "7")),
               CorrectAnswer(Some(1), None)
             )
@@ -106,25 +111,25 @@ object Example {
           Seq(
             Question(
               "4. ",
-              "What is the area of a square with side length 7 inches?",
+              QuestionTemplates.q1(),
               Seq(AnswerChoice(0, "A", "14"), AnswerChoice(1, "B", "49"), AnswerChoice(1, "C", "52"), AnswerChoice(1, "D", "14"), AnswerChoice(1, "E", "7")),
               CorrectAnswer(Some(1), None)
             ),
             Question(
               "5. ",
-              "What is the area of a square with side length 7 inches?",
+              QuestionTemplates.q1(),
               Seq(AnswerChoice(0, "A", "14"), AnswerChoice(1, "B", "49"), AnswerChoice(1, "C", "52"), AnswerChoice(1, "D", "14"), AnswerChoice(1, "E", "7")),
               CorrectAnswer(Some(1), None)
             ),
             Question(
               "5. ",
-              "What is the area of a square with side length 7 inches?",
+              QuestionTemplates.q1(),
               Seq(AnswerChoice(0, "A", "14"), AnswerChoice(1, "B", "49"), AnswerChoice(1, "C", "52"), AnswerChoice(1, "D", "14"), AnswerChoice(1, "E", "7")),
               CorrectAnswer(Some(1), None)
             ),
             Question(
               "6. ",
-              "What is the area of a square with side length 7 inches?",
+              QuestionTemplates.q1(),
               Seq(AnswerChoice(0, "A", "14"), AnswerChoice(1, "B", "49"), AnswerChoice(1, "C", "52"), AnswerChoice(1, "D", "14"), AnswerChoice(1, "E", "7")),
               CorrectAnswer(Some(1), None)
             )
@@ -137,19 +142,19 @@ object Example {
           Seq(
             Question(
               "7. ",
-              "What is the area of a square with side length 7 inches?",
+              QuestionTemplates.q1(),
               Seq(AnswerChoice(0, "A", "14"), AnswerChoice(1, "B", "49"), AnswerChoice(1, "C", "52"), AnswerChoice(1, "D", "14"), AnswerChoice(1, "E", "7")),
               CorrectAnswer(Some(1), None)
             ),
             Question(
               "1. ",
-              "What is the area of a square with side length 7 inches?",
+              QuestionTemplates.q1(),
               Seq(AnswerChoice(0, "A", "14"), AnswerChoice(1, "B", "49"), AnswerChoice(1, "C", "52"), AnswerChoice(1, "D", "14"), AnswerChoice(1, "E", "7")),
               CorrectAnswer(Some(1), None)
             ),
             Question(
               "1. ",
-              "What is the area of a square with side length 7 inches?",
+              QuestionTemplates.q1(),
               Seq(AnswerChoice(0, "7", "14"), AnswerChoice(1, "4", "49"), AnswerChoice(1, "F", "52"), AnswerChoice(1, "D", "14"), AnswerChoice(1, "E", "7")),
               CorrectAnswer(Some(1), None)
             )
@@ -162,19 +167,19 @@ object Example {
           Seq(
             Question(
               "7. ",
-              "What is the area of a square with side length 7 inches?",
+              QuestionTemplates.q1(),
               Seq(AnswerChoice(0, "A", "14"), AnswerChoice(1, "B", "49"), AnswerChoice(1, "C", "52"), AnswerChoice(1, "D", "14"), AnswerChoice(1, "E", "7")),
               CorrectAnswer(Some(1), None)
             ),
             Question(
               "1. ",
-              "What is the area of a square with side length 7 inches?",
+              QuestionTemplates.q1(),
               Seq(AnswerChoice(0, "A", "14"), AnswerChoice(1, "B", "49"), AnswerChoice(1, "C", "52"), AnswerChoice(1, "D", "14"), AnswerChoice(1, "E", "7")),
               CorrectAnswer(Some(1), None)
             ),
             Question(
               "1. ",
-              "What is the area of a square with side length 7 inches?",
+              QuestionTemplates.q1(),
               Seq(AnswerChoice(0, "7", "14"), AnswerChoice(1, "4", "49"), AnswerChoice(1, "F", "52"), AnswerChoice(1, "D", "14"), AnswerChoice(1, "E", "7")),
               CorrectAnswer(Some(1), None)
             )

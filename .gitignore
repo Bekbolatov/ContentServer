@@ -12,4 +12,5 @@ project/boot/
 /.settings
 /RUNNING_PID
 
+logs/
 
