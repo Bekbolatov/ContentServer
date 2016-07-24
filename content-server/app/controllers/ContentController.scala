@@ -2,19 +2,9 @@ package controllers
 
 import javax.inject.{Inject, Singleton}
 
-import akka.actor.ActorSystem
-import com.sparkydots.utils.ServiceDiscovery
-import play.api.libs.json.{Reads, Json, JsPath}
-import play.api.libs.ws.WSClient
-
 import scala.concurrent.ExecutionContext
 import play.api.mvc.{Controller, Action}
-import play.twirl.api.TxtFormat
 import services.{ContentGeneration, LatexService}
-
-import play.api.mvc._
-import play.api.libs.json._
-import play.api.libs.functional.syntax._
 import com.sparkydots.contentservice._
 import PracticeSetSpecification.implicits._
 
