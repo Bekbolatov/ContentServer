@@ -15,7 +15,8 @@ rm -rf target
 mkdir -p target/lib
 
 unzip $SRC_HOME/target/universal/$DISTRIB_NAME.zip -d $SRC_HOME/target/universal/
-cp -rf $SRC_HOME/target/universal/$DISTRIB_NAME/lib/content-server* target/lib/.
+#cp -rf $SRC_HOME/target/universal/$DISTRIB_NAME/lib/content-server* target/lib/.
+cp -rf $SRC_HOME/target/universal/$DISTRIB_NAME/lib/* target/lib/.
 cp -rf $SRC_HOME/target/universal/$DISTRIB_NAME/bin target/.
 cp -rf $SRC_HOME/target/universal/$DISTRIB_NAME/conf target/.
 

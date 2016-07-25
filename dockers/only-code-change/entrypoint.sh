@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-ln -s /EFS/distrib/lib/* /deployment/lib/
+#ln -s /EFS/distrib/lib/* /deployment/lib/
 
 #register
 PORT={SET_PORT}

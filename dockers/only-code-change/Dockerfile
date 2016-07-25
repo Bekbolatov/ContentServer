@@ -8,7 +8,7 @@ RUN mkdir /deployment/logs
 
 COPY target/bin /deployment/bin
 COPY target/conf /deployment/conf
-COPY target/lib/content-server* /deployment/lib/
+COPY target/lib /deployment/lib
 
 COPY target/entrypoint.sh /deployment/
 RUN chmod a+x /deployment/entrypoint.sh
