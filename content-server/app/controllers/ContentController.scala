@@ -22,7 +22,9 @@ class ContentController @Inject()(
     val body = contentGen.getSetInTex()
 
     latexService.convertLatexFile(body, log = Some(log)).
-      map { case (success, result) => result }
+      map { case (success, result) =>
+        result.withHeaders("Content-Disposition" -> "attachment; filename=\"attachment.pdf\"")
+      }
   }
 
 
