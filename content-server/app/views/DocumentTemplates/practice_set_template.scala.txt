@@ -11,20 +11,28 @@
 \documentclass{article}
 
 \\usepackage[margin=1.0in, bottom=1.0in]{geometry}
-
+\\usepackage{multicol}
+  
 \setlength{\columnsep}{0.3in}
 
 \begin{document}
 
-\twocolumn[
 \centerline{\sc \large @practiceSet.title}
 \vspace{0.8pc}
 \centerline{\sc @practiceSet.subtitle }
 \vspace{1.8pc}
 
 @practiceSet.description
+\vspace{1.8pc}
+
+@practiceSet.numberOfQuestions questions.
+
 \vspace{0.8pc}
-]
+
+\clearpage
+
+\begin{multicols*}{2}
+
 @for(section <- practiceSet.sections) {
 
   \clearpage
@@ -33,6 +41,7 @@
   \subsubsection*{@section.description}
   
   @for(question <- section.questions) {
+    \vspace{0.1pc}
     \begin{samepage}
     \noindent @question.id @question.statement \newline
     @for(choice <- question.answers) {
@@ -42,7 +51,13 @@
   }
 }
 
-\clearpage
+\end{multicols*}
+
+\mbox{}
+
+\cleardoublepage
+
+\begin{multicols*}{2}
 
 \section*{Answers}
 
@@ -51,5 +66,6 @@
       \noindent @correctAnswerDisplay(question) \newline
     }
 }
+\end{multicols*}
 
 \end{document}

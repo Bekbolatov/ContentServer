@@ -1,5 +1,6 @@
 package com.sparkydots.service.content
 
+import java.io.{StringWriter, PrintWriter}
 import javax.inject.{Inject, Singleton}
 
 import com.sparkydots.service.ServiceDiscovery
@@ -24,12 +25,13 @@ class ContentService @Inject()(ws: WSClient, serviceDiscovery: ServiceDiscovery)
       val promise = Promise[Option[Result]]()
       val futureStreamedResponse: Future[StreamedResponse] =
         ws.
-        url(serviceInstance.httpUrl("/generate")).
-        withHeaders("Content-Type" -> "application/json").
-        withRequestTimeout(timeoutMillis.millis).
-        withMethod("POST").
-        withBody(spec.jsonString).
-        stream()
+          url(serviceInstance.httpUrl("/generate")).
+          withHeaders("Content-Type" -> "application/json").
+          withRequestTimeout(timeoutMillis.millis).
+          withMethod("POST").
+          withFollowRedirects(true).
+          withBody(spec.jsonString).
+          stream()
 
       val futureResult: Future[Option[Result]] = futureStreamedResponse.map {
         case StreamedResponse(response, body) =>
@@ -50,9 +52,11 @@ class ContentService @Inject()(ws: WSClient, serviceDiscovery: ServiceDiscovery)
         promise.success(result)
       }
 
-      futureResult.onFailure { case t =>
-        log.foreach(_("ContentService: Error getting from server"))
-        log.foreach(_(t.getStackTrace.toString))
+      futureResult.onFailure { case thrown =>
+        log.foreach(_ ("ContentService: Error getting from server"))
+        val sw = new StringWriter
+        thrown.printStackTrace(new PrintWriter(sw))
+        log.foreach(_ (sw.toString))
         promise.success(None)
       }
 

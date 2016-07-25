@@ -9,6 +9,8 @@ case class Question(id: String, statement: String, answers: Seq[AnswerChoice], c
 case class Section(title: String, description: String, questions: Seq[Question])
 case class PracticeSet(title: String, subtitle: String, description: String, sections: Seq[Section]) {
 
+  lazy val numberOfQuestions = sections.map(_.questions.size).sum
+
   def pretty: PracticeSet = {
     val alphas = "ABCDEFGHIJ"
     var qid = 0

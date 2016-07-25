@@ -2,6 +2,7 @@ package services
 
 import javax.inject.Inject
 
+import com.sparkydots.service.latex.LatexService
 import play.twirl.api.TxtFormat
 
 import scala.concurrent.ExecutionContext
